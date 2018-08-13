@@ -35,7 +35,7 @@ void loop() {
 void alcohol()
 {
 
-  Serial.println(analogRead(A0));
+  //Serial.println(analogRead(A0));
   if (analogRead(A0) < 600){
     
     data="1";
@@ -62,12 +62,12 @@ void accident()
   long measurement =TP_init();
   delay(50);
  // Serial.print("measurment = ");
-  Serial.println(measurement);
+ // Serial.println(measurement);
   if (measurement > 1000){
     SendMessage();
   }
   else{
-    Serial.println(measurement); 
+   // Serial.println(measurement); 
   }
 }
 
@@ -79,6 +79,7 @@ long TP_init(){
 
 void SendMessage()
 {
+  Serial.println("1");
   mySerial.println("AT+CMGF=1");    //Sets the GSM Module in Text Mode
   delay(1000);  // Delay of 1000 milli seconds or 1 second
   mySerial.println("AT+CMGS=\"+919265196069\"\r"); // Replace x with mobile number
